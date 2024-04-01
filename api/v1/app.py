@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-module to start using api
+godule to start using api
 """
 
 from flask import Flask
@@ -12,11 +12,6 @@ from os import getenv
 app = Flask(__name__)
 
 app.register_blueprint(app_views)
-
-@app.teardown_appcontext
-def exit(exception):
-    '''exit api in case of unexpected error'''
-    storage.close()
 
 
 if __name__ == '__main__':
