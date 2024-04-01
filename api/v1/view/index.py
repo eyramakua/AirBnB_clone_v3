@@ -12,3 +12,11 @@ def index():
     '''function'''
     response = {"status": "OK"}
     return jsonify(response)
+
+
+@app_views.route('/stats', strict_slashes=False)
+def stats():
+    response = {}
+    for key, value in classes.items():
+        response[key] = storage.count(value)
+    return jsonify(response)
